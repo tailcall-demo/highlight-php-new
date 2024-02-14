@@ -80,9 +80,9 @@
 		"symfony/http-client": "^5.2",
 		"symfony/yaml": "^6 || ^5"
 	},
-  "scripts": {
+    "scripts": {
     "testSilent": "vendor/bin/phpunit tests",
-    "test": "@test --verbose"
+    "test": "@testSilent --verbose"
   }
 
 }
