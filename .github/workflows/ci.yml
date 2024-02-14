@@ -1,0 +1,35 @@
+name: "Continuous Integration"
+
+on:
+  - push
+  - pull_request
+
+env:
+  APP_ENV: test
+
+jobs:
+  tests:
+    name: "CI"
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v3"
+
+      - name: "Install PHP"
+        uses: "shivammathur/setup-php@v2"
+        with:
+          coverage: "none"
+          extensions: "intl, zip, apcu"
+          php-version: "8.2"
+          tools: composer
+          ini-values: apc.enable_cli=1
+
+      - name: "Install dependencies"
+        uses: "ramsey/composer-install@v2"
+        with:
+            composer-options: "--ansi --no-interaction --no-progress --prefer-dist"
+
+      - name: "Run tests"
+        run: "composer test"
