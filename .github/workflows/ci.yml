@@ -4,13 +4,9 @@ on:
   - push
   - pull_request
 
-env:
-  APP_ENV: test
-
 jobs:
   tests:
     name: "CI"
-
     runs-on: ubuntu-latest
 
     steps:
@@ -21,10 +17,10 @@ jobs:
         uses: "shivammathur/setup-php@v2"
         with:
           coverage: "none"
-          extensions: "intl, zip, apcu"
+          extensions: "opentelemetry"
           php-version: "8.2"
           tools: composer
-          ini-values: apc.enable_cli=1
+          ini-values: extension=opentelemetry.so
 
       - name: "Install dependencies"
         uses: "ramsey/composer-install@v2"
