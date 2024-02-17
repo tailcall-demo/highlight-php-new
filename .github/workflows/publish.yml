@@ -1,0 +1,22 @@
+name: Publish to Packagist
+
+on:
+  release:
+    types: [published]
+
+env:
+  PACKAGIST_TOKEN: ${{ secrets.PACKAGIST_TOKEN }}
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        
+      - name: Use composer
+        uses: php-actions/composer@v5
+        
+      - name: Publish to Packagist
+        run: composer publish <name> ${PACKAGIST_TOKEN}
