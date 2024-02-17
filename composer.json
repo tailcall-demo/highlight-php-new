@@ -1,5 +1,5 @@
 {
-	"name": "highlight/php-sdk",
+	"name": "ayewo/highlight-php-sdk",
 	"description": "Highlight's OpenTelemetry SDK for PHP.",
 	"keywords": [
 		"opentelemetry",
