@@ -1,4 +1,4 @@
-name: 'Continuous Integration'
+name: Continuous Integration
 
 on:
   - push
@@ -11,10 +11,10 @@ jobs:
 
     steps:
       - name: Checkout Code
-        uses: "actions/checkout@v3"
+        uses: actions/checkout@v4
 
       - name: Install PHP
-        uses: "shivammathur/setup-php@v2"
+        uses: shivammathur/setup-php@v2
         with:
           coverage: "none"
           extensions: "opentelemetry"
@@ -23,9 +23,9 @@ jobs:
           #ini-values: extension=opentelemetry.so
 
       - name: Install Dependencies
-        uses: "ramsey/composer-install@v2"
+        uses: ramsey/composer-install@v2
         with:
             composer-options: "--ansi --no-interaction --no-progress --prefer-dist"
 
       - name: Run Tests
-        run: "composer test"
+        run: composer test
