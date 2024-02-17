@@ -19,4 +19,4 @@ jobs:
         uses: php-actions/composer@v5
         
       - name: Publish to Packagist
-        run: composer publish <name> ${PACKAGIST_TOKEN}
+        run: composer publish ayewo ${PACKAGIST_TOKEN}
