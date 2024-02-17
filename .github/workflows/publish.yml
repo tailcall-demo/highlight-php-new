@@ -6,6 +6,7 @@ on:
   push:
     tags:
       - '*'
+      
 env:
   PACKAGIST_TOKEN: ${{ secrets.PACKAGIST_TOKEN }}
 
